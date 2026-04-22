@@ -14,7 +14,7 @@ import { LucideAngularModule } from 'lucide-angular';
       <div class="container">
         <div class="ph-avatar">RS</div>
         <div class="ph-name">Rahul Sharma</div>
-        <div class="ph-email">rahul.sharma@email.com</div>
+        <div class="ph-email">rahul.sharma&#64;email.com</div>
         <div class="ph-phone">+91 98765 43210</div>
         <button class="edit-btn">✏️ Edit Profile</button>
       </div>

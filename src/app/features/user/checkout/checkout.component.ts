@@ -147,7 +147,7 @@ import { LabDataService } from '../../../core/services/lab-data.service';
         <!-- Navigation Buttons -->
         <div class="nav-btns">
           @if (step() > 1) {
-            <button class="btn btn-outline" (click)="step.update(s => s - 1)">← Back</button>
+            <button class="btn btn-outline" (click)="prevStep()">← Back</button>
           }
           @if (step() < 3) {
             <button class="btn btn-primary" style="flex:1" (click)="nextStep()">
@@ -299,6 +299,10 @@ export class CheckoutComponent {
     { id: 'card', emoji: '💳', name: 'Credit / Debit Card', sub: 'All major cards accepted', offer: null },
     { id: 'cod', emoji: '💵', name: 'Pay at Lab (COD)', sub: 'Pay when sample is collected', offer: null },
   ];
+
+  prevStep() {
+    this.step.update(s => s - 1);
+  }
 
   nextStep() {
     if (this.step() === 2 && !this.selectedDate()) { alert('Please select a date'); return; }

@@ -56,7 +56,7 @@ import { LabDataService } from '../../../core/services/lab-data.service';
           <div class="pr-left">
             <div class="pr-id">{{ order.id }}</div>
             <div class="pr-user">{{ order.userName }}</div>
-            <div class="pr-tests">{{ order.items.map(i => i.testName).join(', ') }}</div>
+            <div class="pr-tests">{{ getTestNames(order) }}</div>
             <div class="pr-date">{{ order.appointmentDate }}</div>
           </div>
           <div class="pr-right">
@@ -160,6 +160,10 @@ export class AdminReportsComponent {
 
   awaitingReports() {
     return this.data.mockOrders.filter(o => o.status === 'processing' || (o.status === 'completed' && !o.reportUrl));
+  }
+
+  getTestNames(order: any): string {
+    return order.items.map((i: any) => i.testName).join(', ');
   }
 
   onFileChange(event: Event) {
